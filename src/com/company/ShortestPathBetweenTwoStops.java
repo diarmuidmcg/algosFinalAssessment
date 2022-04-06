@@ -1,10 +1,15 @@
 package com.company;
 
+import com.company.HelperClasses.EdgeWeightedDigraph;
+
 import java.util.Scanner;
 
 public class ShortestPathBetweenTwoStops {
 
     public static void RunShortestPath() {
+
+        // load in the graph of stops, stop times, & transfers
+        EdgeWeightedDigraph graph = new EdgeWeightedDigraph();
         Boolean engagingInApp = true;
         while (engagingInApp) {
             // get first stop number
@@ -16,10 +21,12 @@ public class ShortestPathBetweenTwoStops {
             }
 
             // find stop
-            int stopOne = 0;
+            int stopOne = graph.findStop(stopOneNumber);
             while (stopOne == -1) {
                 System.out.println("This is not a valid stop. Try again");
                 // find stop again
+                stopOneNumber = getUserInputForStopNumber(1);
+                stopOne = graph.findStop(stopOneNumber);
             }
 
             // get second stop number
@@ -31,10 +38,12 @@ public class ShortestPathBetweenTwoStops {
             }
 
             // find stop
-            int stopTwo = 0;
+            int stopTwo = graph.findStop(stopTwoNumber);
             if (stopTwo == -1) {
                 System.out.println("This is not a valid stop. Try again");
                 // find stop again
+                stopTwoNumber = getUserInputForStopNumber(2);
+                stopTwo = graph.findStop(stopTwoNumber);
             }
 
             // find the shortest path
