@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -23,7 +24,7 @@ public class Main {
             String userJobChoice = input.nextLine();
 
             // check if input is quit
-            if (userJobChoice.contains("q")) {
+            if (userJobChoice.toLowerCase().contains("q")) {
                 // quit app
                 engagingInApp = false;
             }
