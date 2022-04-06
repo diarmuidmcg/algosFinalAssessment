@@ -1,5 +1,4 @@
 package com.company;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -52,6 +51,7 @@ public class Main {
 
                 if (userInputInt == 1) {
                     // run shortest path;
+                    ShortestPathBetweenTwoStops.RunShortestPath();
                     System.out.println("shortest path");
                 } else if (userInputInt == 2) {
                     // run search bus stops

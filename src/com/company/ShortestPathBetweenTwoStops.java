@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ShortestPathBetweenTwoStops {
 
-    public void RunShortestPath() {
+    public static void RunShortestPath() {
         Boolean engagingInApp = true;
         while (engagingInApp) {
             // get first stop number
@@ -39,10 +39,12 @@ public class ShortestPathBetweenTwoStops {
 
             // find the shortest path
 
+            engagingInApp = false;
+
         }
     }
 
-    public int getUserInputForStopNumber(int stopNumber) {
+    public static int getUserInputForStopNumber(int stopNumber) {
         // create scanner
         Scanner input = new Scanner(System.in);
         if (stopNumber == 1) {
