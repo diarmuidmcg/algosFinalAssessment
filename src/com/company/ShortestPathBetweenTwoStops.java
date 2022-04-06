@@ -1,15 +1,18 @@
 package com.company;
 
+import com.company.HelperClasses.DijkstraSP;
 import com.company.HelperClasses.EdgeWeightedDigraph;
+import com.company.HelperClasses.Stop;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ShortestPathBetweenTwoStops {
 
     public static void RunShortestPath() {
-
-        // load in the graph of stops, stop times, & transfers
-        EdgeWeightedDigraph graph = new EdgeWeightedDigraph();
+        System.out.println("Loading our ShortestPath Algo, hold tight! ");
+        // load in the graphOfStops of stops, stop times, & transfers
+        EdgeWeightedDigraph graphOfStops = new EdgeWeightedDigraph();
         Boolean engagingInApp = true;
         while (engagingInApp) {
             // get first stop number
@@ -21,12 +24,12 @@ public class ShortestPathBetweenTwoStops {
             }
 
             // find stop
-            int stopOne = graph.findStop(stopOneNumber);
+            int stopOne = graphOfStops.findStop(stopOneNumber);
             while (stopOne == -1) {
                 System.out.println("This is not a valid stop. Try again");
                 // find stop again
                 stopOneNumber = getUserInputForStopNumber(1);
-                stopOne = graph.findStop(stopOneNumber);
+                stopOne = graphOfStops.findStop(stopOneNumber);
             }
 
             // get second stop number
@@ -38,18 +41,40 @@ public class ShortestPathBetweenTwoStops {
             }
 
             // find stop
-            int stopTwo = graph.findStop(stopTwoNumber);
+            int stopTwo = graphOfStops.findStop(stopTwoNumber);
             if (stopTwo == -1) {
                 System.out.println("This is not a valid stop. Try again");
                 // find stop again
                 stopTwoNumber = getUserInputForStopNumber(2);
-                stopTwo = graph.findStop(stopTwoNumber);
+                stopTwo = graphOfStops.findStop(stopTwoNumber);
             }
 
             // find the shortest path
-
+            findShortestPath(stopOne, stopTwo, graphOfStops);
             engagingInApp = false;
 
+        }
+    }
+
+    // Finding shortest paths between 2 bus stops (as input by the user), returning
+    // the list of stops en route as well as the associated “cost”.
+    private static void findShortestPath(int stop1, int stop2, EdgeWeightedDigraph graphOfStops) {
+
+        DijkstraSP shortestPath = new DijkstraSP(graphOfStops, stop1, stop2);
+        // ensure shortestPath was successful & not the same stop
+        if (shortestPath.fail == false && stop1 != stop2) {
+            ArrayList<Stop> route = shortestPath.shortestRoute;
+            System.out.println("To get from " + stop1 + " to stop " + stop2 + " is:");
+            for (int i = 0; i < route.size(); i++) {
+                Stop s = route.get(i);
+                System.out.println(s.stopNumber + " -> " + s.stopName);
+            }
+        }
+        // if they're the same stop,
+        else if (stop1 == stop2) {
+            System.out.println("Stop " + stop1 + " and stop " + stop2 + " are the same stop! ");
+        } else {
+            System.out.println("The shortest path calculation failed. Please check your inputs ");
         }
     }
 

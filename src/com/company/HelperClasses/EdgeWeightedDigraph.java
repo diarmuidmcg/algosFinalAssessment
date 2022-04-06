@@ -29,7 +29,8 @@ public class EdgeWeightedDigraph {
 
     private void initStops() {
         try {
-            String filename = "algosFinalAssessment/src/BusFiles/stops.txt";
+//            String filename = "algosFinalAssessment/src/BusFiles/stops.txt";
+            String filename = "/Users/diarmuidmcgonagle/IdeaProjects/algosFinalAssessment/src/BusFiles/stops.txt";
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
             scanner.useDelimiter(",");
@@ -52,7 +53,8 @@ public class EdgeWeightedDigraph {
     private void initStopEdges() {
         try {
             int lastRoute, currRoute, lastStop, currStop;
-            String filename = "algosFinalAssessment/src/BusFiles/stop_times.txt";
+//            String filename = "algosFinalAssessment/src/BusFiles/stop_times.txt";
+            String filename = "/Users/diarmuidmcgonagle/IdeaProjects/algosFinalAssessment/src/BusFiles/stop_times.txt";
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
             scanner.useDelimiter(",");
@@ -89,7 +91,9 @@ public class EdgeWeightedDigraph {
             String route, time;
             int stopNumber;
             Stop stop;
-            String filename = "algosFinalAssessment/src/BusFiles/stop_times.txt";
+//            String filename = "algosFinalAssessment/src/BusFiles/stop_times.txt";
+            String filename = "/Users/diarmuidmcgonagle/IdeaProjects/algosFinalAssessment/src/BusFiles/stop_times.txt";
+
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
             scanner.useDelimiter(",");
@@ -112,18 +116,27 @@ public class EdgeWeightedDigraph {
         try {
             int initStop, destStop;
             double weight;
-            String filename = "algosFinalAssessment/src/BusFiles/transfers.txt";
+//            String filename = "algosFinalAssessment/src/BusFiles/transfers.txt";
+            String filename = "/Users/diarmuidmcgonagle/IdeaProjects/algosFinalAssessment/src/BusFiles/transfers.txt";
+
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
-            scanner.useDelimiter(",|\\n");
+//            scanner.useDelimiter(",|\\n");
+            scanner.useDelimiter(",");
             scanner.nextLine();
+            int counter = 0;
             while (scanner.hasNext()) {
                 initStop = scanner.nextInt();
                 destStop = scanner.nextInt();
                 if (scanner.hasNextInt()) {
+                    counter++;
                     scanner.nextInt();
                     String min = scanner.next();
-                    min = min.substring(0, 3);
+                    if (min.length() >= 3) {
+                        min = min.substring(0, 3);
+                    }
+                    else continue;
+
                     double minimum = Double.parseDouble(min);
                     weight = minimum / 100;
                 } else {
