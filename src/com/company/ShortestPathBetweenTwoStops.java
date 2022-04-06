@@ -9,10 +9,8 @@ import java.util.Scanner;
 
 public class ShortestPathBetweenTwoStops {
 
-    public static void RunShortestPath() {
-        System.out.println("Loading our ShortestPath Algo, hold tight! ");
-        // load in the graphOfStops of stops, stop times, & transfers
-        EdgeWeightedDigraph graphOfStops = new EdgeWeightedDigraph();
+    public static void RunShortestPath(EdgeWeightedDigraph graphOfStops) {
+
         Boolean engagingInApp = true;
         while (engagingInApp) {
             // get first stop number
@@ -50,7 +48,7 @@ public class ShortestPathBetweenTwoStops {
             }
 
             // find the shortest path
-            findShortestPath(stopOne, stopTwo, graphOfStops);
+            findShortestPath(stopOneNumber, stopTwoNumber, graphOfStops);
             engagingInApp = false;
 
         }

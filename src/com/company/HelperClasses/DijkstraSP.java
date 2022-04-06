@@ -32,6 +32,7 @@ public class DijkstraSP {
             for (int i = 0; i < graphOfStops.numberOfVerts - 1; i++) {
                 // get the min distance
                 int vertex = minimumDistance(distTo, visited);
+                System.out.println("vertex is " + vertex);
                 // if the vertex is greater than 0
                 if (vertex >= 0) {
                     // mark as visited
@@ -43,7 +44,13 @@ public class DijkstraSP {
                         relax(edge, graphOfStops);
                     }
                 }
+//                if (vertex < 0)
+//                    continue;
+//                visited[vertex] = true;
+//                for (DirectedEdge edge : graphOfStops.adjacentEdges.get(vertex))
+//                    relax(edge, graphOfStops);
             }
+            shortestRoute = new ArrayList<Stop>();
             // find time to distance
             int lastStop = graphOfStops.findStop(endPoint);
             // recursively check each stop to see if destination
@@ -70,6 +77,9 @@ public class DijkstraSP {
     public void relax(DirectedEdge edge, EdgeWeightedDigraph graph) {
         int initVert = graph.findStop(edge.startVertex);
         int destVert = graph.findStop(edge.endVertex);
+        System.out.println("initVert is " + initVert);
+        System.out.println("destVert is " + destVert);
+        System.out.println("edge weight is " + edge.weight);
         if (distTo[destVert] > (distTo[initVert] + edge.weight)) {
             distTo[destVert] = distTo[initVert] + edge.weight;
             edgedTo[destVert] = initVert;

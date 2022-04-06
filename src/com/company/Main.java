@@ -1,9 +1,14 @@
 package com.company;
+import com.company.HelperClasses.EdgeWeightedDigraph;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("Loading our ShortestPath Algo, hold tight! ");
+        // load in the graphOfStops of stops, stop times, & transfers
+        EdgeWeightedDigraph graphOfStops = new EdgeWeightedDigraph();
 	// write your code here
         Boolean engagingInApp = true;
         while (engagingInApp) {
@@ -51,7 +56,7 @@ public class Main {
 
                 if (userInputInt == 1) {
                     // run shortest path;
-                    ShortestPathBetweenTwoStops.RunShortestPath();
+                    ShortestPathBetweenTwoStops.RunShortestPath(graphOfStops);
                     System.out.println("shortest path");
                 } else if (userInputInt == 2) {
                     // run search bus stops

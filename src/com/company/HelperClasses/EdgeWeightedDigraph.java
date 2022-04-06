@@ -135,7 +135,10 @@ public class EdgeWeightedDigraph {
                     if (min.length() >= 3) {
                         min = min.substring(0, 3);
                     }
-                    else continue;
+                    else {
+                        System.out.println("skipping this line " + counter);
+                        continue;
+                    }
 
                     double minimum = Double.parseDouble(min);
                     weight = minimum / 100;
@@ -156,7 +159,9 @@ public class EdgeWeightedDigraph {
             if (stops.get(i).stopNumber == stopNum) {
                 return i;
             }
+
         }
+        System.out.println("on stop number " + stopNum);
         return -1;
     }
 }
