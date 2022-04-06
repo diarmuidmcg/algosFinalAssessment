@@ -9,10 +9,10 @@ import java.util.ArrayList;
 // https://algs4.cs.princeton.edu/44sp/EdgeWeightedDigraph.java.html
 
 public class EdgeWeightedDigraph {
-    private int numberOfVerts;                        // number of vertices in this digraph
-    private ArrayList<Stop> stops;                     // list of edges (stops) in this digraph
-    private ArrayList<ArrayList<DirectedEdge>> adjacentEdges;    // adj[v] = adjacency list for vertex v
-    private ArrayList<Trip> trips;                              // indegree[v] = indegree of vertex v
+    public int numberOfVerts;                        // number of vertices in this digraph
+    public ArrayList<Stop> stops;                     // list of edges (stops) in this digraph
+    public ArrayList<ArrayList<DirectedEdge>> adjacentEdges;    // adj[v] = adjacency list for vertex v
+    public ArrayList<Trip> trips;                              // indegree[v] = indegree of vertex v
 
     public EdgeWeightedDigraph() {
         stops = new ArrayList<>();

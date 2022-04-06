@@ -4,9 +4,9 @@ package com.company.HelperClasses;
 // https://algs4.cs.princeton.edu/44sp/DirectedEdge.java.html
 
 public class DirectedEdge {
-    private int startVertex;
-    private int endVertex;
-    private double weight;
+    public int startVertex;
+    public int endVertex;
+    public double weight;
 
     public DirectedEdge(int initVert, int destVertex, double weight) {
         this.startVertex = initVert;
