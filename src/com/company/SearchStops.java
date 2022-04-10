@@ -22,8 +22,9 @@ public class SearchStops {
                 break;
             }
             else {
-                Iterable<String> potStops = busStops.keysWithPrefix(getStopName);
+                Iterable<String> potStops = busStops.keysWithPrefix(getStopName.toUpperCase());
                 // search for bus routes w desc
+
             }
 
             engagingInApp = false;
