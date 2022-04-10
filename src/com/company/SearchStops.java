@@ -1,11 +1,12 @@
 package com.company;
 
 import com.company.HelperClasses.EdgeWeightedDigraph;
+import com.company.HelperClasses.TST;
 
 import java.util.Scanner;
 
 public class SearchStops {
-    public static void RunFindStop() {
+    public static void runFindStop(TST busStops) {
         // create scanner
         Scanner input = new Scanner(System.in);
         Boolean engagingInApp = true;
@@ -21,7 +22,7 @@ public class SearchStops {
                 break;
             }
             else {
-
+                Iterable<String> potStops = busStops.keysWithPrefix(getStopName);
                 // search for bus routes w desc
             }
 

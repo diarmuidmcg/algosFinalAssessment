@@ -1,5 +1,6 @@
 package com.company;
 import com.company.HelperClasses.EdgeWeightedDigraph;
+import com.company.HelperClasses.TST;
 
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ public class Main {
         System.out.println("Loading our ShortestPath Algo, hold tight! ");
         // load in the graphOfStops of stops, stop times, & transfers
         EdgeWeightedDigraph graphOfStops = new EdgeWeightedDigraph();
+        String filename = "/Users/diarmuidmcgonagle/IdeaProjects/algosFinalAssessment/src/BusFiles/stops.txt";
+        TST newTree = new TST(filename);
 	// write your code here
         Boolean engagingInApp = true;
         while (engagingInApp) {
@@ -60,6 +63,7 @@ public class Main {
                     System.out.println("shortest path");
                 } else if (userInputInt == 2) {
                     // run search bus stops
+                    SearchStops.runFindStop(newTree);
                     System.out.println("search buses");
                 } else if (userInputInt == 3) {
                     // run search for arrival time

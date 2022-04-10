@@ -20,7 +20,11 @@ public class TST {
     public TST() {
     }
 
-    private void populateTree(String filename) {
+    public TST(String filename) {
+        populateTree(filename);
+    }
+
+        private void populateTree(String filename) {
         int lineCount = 0;
         try {
             File file = new File(filename);
@@ -35,6 +39,7 @@ public class TST {
                     String stopName = scanner.next();
                     String stopDesc = scanner.next();
                     Stop currStop = new Stop(stopNum, stopName, stopDesc);
+                    System.out.println("stop is " + stopName + " " + stopDesc + " " + stopNum);
                     put(currStop.stopName, currStop);
                     scanner.nextLine();
                     lineCount++;
@@ -122,6 +127,7 @@ public class TST {
      */
     public void put(String key, Stop val) {
         if (key == null) {
+            System.out.println("current stop is " + val.stopName);
             throw new IllegalArgumentException("calls put() with null key");
         }
         if (!contains(key))
