@@ -67,6 +67,7 @@ public class Main {
                     System.out.println("search buses");
                 } else if (userInputInt == 3) {
                     // run search for arrival time
+                    SearchStopTimes.runFindStopTimes(graphOfStops);
                     System.out.println("search arrival");
                 } else {
                     System.out.println("You broke me... restart");
