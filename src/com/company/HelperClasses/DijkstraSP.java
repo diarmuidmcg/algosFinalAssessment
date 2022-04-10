@@ -78,8 +78,8 @@ public class DijkstraSP {
     public void relax(DirectedEdge edge, EdgeWeightedDigraph graph) {
         int initVert = graph.findStop(edge.startVertex);
         int destVert = graph.findStop(edge.endVertex);
-        System.out.println("initVert is " + initVert);
-        System.out.println("destVert is " + destVert);
+//        System.out.println("initVert is " + initVert);
+//        System.out.println("destVert is " + destVert);
         if (distTo[destVert] > (distTo[initVert] + edge.weight)) {
             distTo[destVert] = distTo[initVert] + edge.weight;
             edgedTo[destVert] = initVert;

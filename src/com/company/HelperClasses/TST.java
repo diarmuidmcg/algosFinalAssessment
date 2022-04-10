@@ -39,7 +39,7 @@ public class TST {
                     String stopName = scanner.next();
                     String stopDesc = scanner.next();
                     Stop currStop = new Stop(stopNum, stopName, stopDesc);
-                    System.out.println("stop is " + stopName + " " + stopDesc + " " + stopNum);
+//                    System.out.println("stop is " + stopName + " " + stopDesc + " " + stopNum);
                     put(currStop.stopName, currStop);
                     scanner.nextLine();
                     lineCount++;

@@ -54,6 +54,10 @@ public class SearchStopTimes {
                             + "id: " + validTrips.get(i).id + "\n" );
                 }
             }
+            System.out.println("Those are your results. press any key to continue.");
+
+            input.nextLine();
+            engagingInApp = false;
         }
     }
 

@@ -121,8 +121,8 @@ public class EdgeWeightedDigraph {
 
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
-//            scanner.useDelimiter(",|\\n");
-            scanner.useDelimiter(",");
+            scanner.useDelimiter(",|\\n");
+//            scanner.useDelimiter(",");
             scanner.nextLine();
             int counter = 0;
             while (scanner.hasNext()) {
