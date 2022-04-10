@@ -136,7 +136,7 @@ public class EdgeWeightedDigraph {
                         min = min.substring(0, 3);
                     }
                     else {
-                        System.out.println("skipping this line " + counter);
+//                        System.out.println("skipping this line " + counter);
                         continue;
                     }
 

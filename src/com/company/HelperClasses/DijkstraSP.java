@@ -11,6 +11,14 @@ public class DijkstraSP {
     public ArrayList<Stop> shortestRoute;
     public boolean fail = false;
 
+    /**
+     * Computes a shortest-paths tree from the source vertex {@code s} to every other
+     * vertex in the edge-weighted digraph {@code G}.
+     *
+     * @param  graphOfStops the edge-weighted digraph
+     * @param  startingPoint the source vertex
+     * @param  endPoint the ending vertex
+     */
     public DijkstraSP(EdgeWeightedDigraph graphOfStops, int startingPoint, int endPoint) {
         // error check
         if (graphOfStops.findStop(startingPoint) != -1 && graphOfStops.findStop(endPoint) != -1) {
@@ -32,7 +40,6 @@ public class DijkstraSP {
             for (int i = 0; i < graphOfStops.numberOfVerts - 1; i++) {
                 // get the min distance
                 int vertex = minimumDistance(distTo, visited);
-                System.out.println("vertex is " + vertex);
                 // if the vertex is greater than 0
                 if (vertex >= 0) {
                     // mark as visited
@@ -44,11 +51,6 @@ public class DijkstraSP {
                         relax(edge, graphOfStops);
                     }
                 }
-//                if (vertex < 0)
-//                    continue;
-//                visited[vertex] = true;
-//                for (DirectedEdge edge : graphOfStops.adjacentEdges.get(vertex))
-//                    relax(edge, graphOfStops);
             }
             shortestRoute = new ArrayList<Stop>();
             // find time to distance
@@ -70,7 +72,6 @@ public class DijkstraSP {
                 index = i;
             }
         }
-        System.out.println("min dist is "+ index);
         return index;
     }
 
@@ -78,8 +79,6 @@ public class DijkstraSP {
     public void relax(DirectedEdge edge, EdgeWeightedDigraph graph) {
         int initVert = graph.findStop(edge.startVertex);
         int destVert = graph.findStop(edge.endVertex);
-//        System.out.println("initVert is " + initVert);
-//        System.out.println("destVert is " + destVert);
         if (distTo[destVert] > (distTo[initVert] + edge.weight)) {
             distTo[destVert] = distTo[initVert] + edge.weight;
             edgedTo[destVert] = initVert;

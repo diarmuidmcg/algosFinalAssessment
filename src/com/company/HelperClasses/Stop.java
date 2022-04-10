@@ -7,6 +7,7 @@ public class Stop {
 
     public Stop(int stopNumber, String stopName) {
         this.stopNumber = stopNumber;
+        // this removes any prefixes & makes them a postfix
         if (stopName.charAt(0) == 'W' && stopName.charAt(1) == 'e') {
             String sub = stopName.substring(9);
             sub += " WB";
@@ -31,6 +32,7 @@ public class Stop {
     public Stop(int stopNumber, String stopName, String stopDescription) {
         this.stopNumber = stopNumber;
         this.stopDescription = stopDescription;
+        // this removes any prefixes & makes them a postfix
         if (stopName.charAt(0) == 'W') {
             String sub = stopName.substring(3);
             sub += " WB";
@@ -52,17 +54,4 @@ public class Stop {
         }
     }
 
-    public String printStop() {
-        String output = "";
-        output += "Stop Number:\n\t" + stopNumber + "\nStop Name:\n\t" + stopName + "\nStop Description:\n\t"
-                + stopDescription + "";
-        return output;
-    }
-
-//    public void printStopSingleLine() {
-//        String output = "";
-//        output += stopNumber + "\t" + stopDescription;
-//        String format = "%-40s%s%n";
-//        System.out.printf(format, stopName, output);
-//    }
 }

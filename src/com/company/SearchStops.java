@@ -4,6 +4,7 @@ import com.company.HelperClasses.EdgeWeightedDigraph;
 import com.company.HelperClasses.Stop;
 import com.company.HelperClasses.TST;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class SearchStops {
@@ -26,16 +27,26 @@ public class SearchStops {
                 Iterable<String> potStops = busStops.keysWithPrefix(getStopName.toUpperCase());
                 String returnStops = "Stop Id ---- Stop Name ---- Stop Desc\n";
                 // for each loop bc its an iterable
+                int lengthOfPotStops = 0;
                 for (String stop : potStops ) {
-                    if (stop == null) {
+
+                    if (stop == null || stop == "") {
                         System.out.println("There were no stops that meet that search term.");
+                        break;
                     }
                     else {
+                        lengthOfPotStops++;
                         Stop stopValue = busStops.getStopValue(stop);
                         returnStops += stopValue.stopNumber + " " + stopValue.stopName + " " + stopValue.stopDescription + "\n";
                     }
                 }
-                System.out.println(returnStops);
+                if (lengthOfPotStops == 0) {
+                    System.out.println("There were no stops that meet that search term.");
+                }
+                else {
+                    System.out.println(returnStops);
+                }
+
             }
             System.out.println("Those are your results. press any key to continue.");
             input.nextLine();

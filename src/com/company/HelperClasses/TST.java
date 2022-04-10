@@ -17,9 +17,6 @@ public class TST {
         private Stop stopValue;
     }
 
-    public TST() {
-    }
-
     public TST(String filename) {
         populateTree(filename);
     }
@@ -39,13 +36,11 @@ public class TST {
                     String stopName = scanner.next();
                     String stopDesc = scanner.next();
                     Stop currStop = new Stop(stopNum, stopName, stopDesc);
-//                    System.out.println("stop is " + stopName + " " + stopDesc + " " + stopNum);
                     put(currStop.stopName, currStop);
                     scanner.nextLine();
                     lineCount++;
                 }
             }
-            // System.out.println(lineCount);
             scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println(e);

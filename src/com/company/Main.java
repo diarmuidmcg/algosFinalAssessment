@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Loading our ShortestPath Algo, hold tight! ");
+        System.out.println("Loading our App, hold tight! ");
         // load in the graphOfStops of stops, stop times, & transfers
         EdgeWeightedDigraph graphOfStops = new EdgeWeightedDigraph();
         String filename = "/Users/diarmuidmcgonagle/IdeaProjects/algosFinalAssessment/src/BusFiles/stops.txt";
@@ -60,15 +60,12 @@ public class Main {
                 if (userInputInt == 1) {
                     // run shortest path;
                     ShortestPathBetweenTwoStops.RunShortestPath(graphOfStops);
-                    System.out.println("shortest path");
                 } else if (userInputInt == 2) {
                     // run search bus stops
                     SearchStops.runFindStop(newTree);
-                    System.out.println("search buses");
                 } else if (userInputInt == 3) {
                     // run search for arrival time
                     SearchStopTimes.runFindStopTimes(graphOfStops);
-                    System.out.println("search arrival");
                 } else {
                     System.out.println("You broke me... restart");
                 }
@@ -77,5 +74,6 @@ public class Main {
             }
 
         }
+        System.out.println("Thank you for using this app. ");
     }
 }

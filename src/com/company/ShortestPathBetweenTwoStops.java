@@ -48,7 +48,7 @@ public class ShortestPathBetweenTwoStops {
             }
 
             // find the shortest path
-            System.out.println("stop 1 is " + stopOneNumber + " and stop 2 is " + stopTwoNumber);
+            System.out.println("Starting now to find shortest path between Stop #" + stopOneNumber + " and Stop #" + stopTwoNumber);
             findShortestPath(stopOneNumber, stopTwoNumber, graphOfStops);
             System.out.println("Those are your results. press any key to continue.");
             Scanner input = new Scanner(System.in);
