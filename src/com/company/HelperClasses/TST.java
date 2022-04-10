@@ -54,10 +54,21 @@ public class TST {
 
     // ----------------------- HELPER METHODS ---------------------------------------
 
+    /**
+     * Returns the number of key-value pairs in this symbol table.
+     * @return the number of key-value pairs in this symbol table
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * Does this symbol table contain the given key?
+     * @param key the key
+     * @return {@code true} if this symbol table contains {@code key} and
+     *     {@code false} otherwise
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
     public boolean contains(String key) {
         if (key == null) {
             throw new IllegalArgumentException("argument to contains() is null");
@@ -137,6 +148,45 @@ public class TST {
         return x;
     }
 
+    /**
+     * Returns all keys in the symbol table as an {@code Iterable}.
+     * To iterate over all of the keys in the symbol table named {@code st},
+     * use the foreach notation: {@code for (Key key : st.keys())}.
+     * @return all keys in the symbol table as an {@code Iterable}
+     */
+    public Iterable<String> keys() {
+        Queue<String> queue = new Queue<String>();
+        collect(rootNode, new StringBuilder(), queue);
+        return queue;
+    }
+    /**
+     * Returns all of the keys in the set that start with {@code prefix}.
+     * @param prefix the prefix
+     * @return all of the keys in the set that start with {@code prefix},
+     *     as an iterable
+     * @throws IllegalArgumentException if {@code prefix} is {@code null}
+     */
+    public Iterable<String> keysWithPrefix(String prefix) {
+        if (prefix == null) {
+            throw new IllegalArgumentException("calls keysWithPrefix() with null argument");
+        }
+        Queue<String> queue = new Queue<String>();
+        Node x = getTree(rootNode, prefix, 0);
+        if (x == null) return queue;
+        if (x.stopValue != null) queue.enqueue(prefix);
+        collect(x.midTree, new StringBuilder(prefix), queue);
+        return queue;
+    }
+
+    // all keys in subtrie rooted at x with given prefix
+    private void collect(Node x, StringBuilder prefix, Queue<String> queue) {
+        if (x == null) return;
+        collect(x.leftTree,  prefix, queue);
+        if (x.stopValue != null) queue.enqueue(prefix.toString() + x.currentChar);
+        collect(x.midTree,   prefix.append(x.currentChar), queue);
+        prefix.deleteCharAt(prefix.length() - 1);
+        collect(x.rightTree, prefix, queue);
+    }
 
 
 }
