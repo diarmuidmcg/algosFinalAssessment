@@ -70,6 +70,7 @@ public class DijkstraSP {
                 index = i;
             }
         }
+        System.out.println("min dist is "+ index);
         return index;
     }
 
@@ -79,7 +80,6 @@ public class DijkstraSP {
         int destVert = graph.findStop(edge.endVertex);
         System.out.println("initVert is " + initVert);
         System.out.println("destVert is " + destVert);
-        System.out.println("edge weight is " + edge.weight);
         if (distTo[destVert] > (distTo[initVert] + edge.weight)) {
             distTo[destVert] = distTo[initVert] + edge.weight;
             edgedTo[destVert] = initVert;
