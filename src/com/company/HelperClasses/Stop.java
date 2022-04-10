@@ -59,10 +59,10 @@ public class Stop {
         return output;
     }
 
-    public void printStopSingleLine() {
-        String output = "";
-        output += stopNumber + "\t" + stopDescription;
-        String format = "%-40s%s%n";
-        System.out.printf(format, stopName, output);
-    }
+//    public void printStopSingleLine() {
+//        String output = "";
+//        output += stopNumber + "\t" + stopDescription;
+//        String format = "%-40s%s%n";
+//        System.out.printf(format, stopName, output);
+//    }
 }

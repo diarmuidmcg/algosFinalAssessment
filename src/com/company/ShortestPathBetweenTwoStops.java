@@ -50,6 +50,9 @@ public class ShortestPathBetweenTwoStops {
             // find the shortest path
             System.out.println("stop 1 is " + stopOneNumber + " and stop 2 is " + stopTwoNumber);
             findShortestPath(stopOneNumber, stopTwoNumber, graphOfStops);
+            System.out.println("Those are your results. press any key to continue.");
+            Scanner input = new Scanner(System.in);
+            input.nextLine();
             engagingInApp = false;
 
         }
@@ -75,6 +78,7 @@ public class ShortestPathBetweenTwoStops {
         } else {
             System.out.println("The shortest path calculation failed. Please check your inputs ");
         }
+
     }
 
     public static int getUserInputForStopNumber(int stopNumber) {

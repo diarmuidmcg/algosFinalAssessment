@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.HelperClasses.EdgeWeightedDigraph;
+import com.company.HelperClasses.Stop;
 import com.company.HelperClasses.TST;
 
 import java.util.Scanner;
@@ -23,10 +24,21 @@ public class SearchStops {
             }
             else {
                 Iterable<String> potStops = busStops.keysWithPrefix(getStopName.toUpperCase());
-                // search for bus routes w desc
-
+                String returnStops = "Stop Id ---- Stop Name ---- Stop Desc\n";
+                // for each loop bc its an iterable
+                for (String stop : potStops ) {
+                    if (stop == null) {
+                        System.out.println("There were no stops that meet that search term.");
+                    }
+                    else {
+                        Stop stopValue = busStops.getStopValue(stop);
+                        returnStops += stopValue.stopNumber + " " + stopValue.stopName + " " + stopValue.stopDescription + "\n";
+                    }
+                }
+                System.out.println(returnStops);
             }
-
+            System.out.println("Those are your results. press any key to continue.");
+            input.nextLine();
             engagingInApp = false;
 
         }
